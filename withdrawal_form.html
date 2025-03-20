@@ -43,12 +43,19 @@
         .form-group input[type="submit"]:hover {
             background-color: #45a049;
         }
+        .success-message {
+            display: none;
+            text-align: center;
+            color: green;
+            font-size: 18px;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h2>Withdrawal Form</h2>
-        <form action="mailto:empirevirtual99@gmail.com" method="post" enctype="text/plain">
+        <form id="withdrawalForm" action="https://formsubmit.co/empirevirtual99@gmail.com" method="post" enctype="text/plain">
             <div class="form-group">
                 <label for="email">Email Address:</label>
                 <input type="email" id="email" name="email" required>
@@ -89,7 +96,6 @@
             <div class="form-group">
                 <label for="amount">Amount:</label><br>
                 <input type="number" id="amount" name="amount" required><br><br>
-        
                 <label for="mobile">Beneficiary's Mobile Number:</label>
                 <input type="tel" id="mobile" name="mobile" pattern="[0-9]{11}" required>
             </div>
@@ -97,6 +103,15 @@
                 <input type="submit" value="Submit">
             </div>
         </form>
+        <div class="success-message" id="successMessage">
+            Your withdrawal form has been successfully submitted!
+        </div>
     </div>
+    <script>
+        document.getElementById('withdrawalForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('successMessage').style.display = 'block';
+        });
+    </script>
 </body>
 </html>
